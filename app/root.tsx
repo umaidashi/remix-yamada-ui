@@ -8,6 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { UIProvider } from "@yamada-ui/react";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -15,6 +16,7 @@ export const links: LinksFunction = () => [
 
 export default function App() {
   return (
+    <UIProvider>
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
@@ -29,5 +31,6 @@ export default function App() {
         <LiveReload />
       </body>
     </html>
+    </UIProvider>
   );
 }
