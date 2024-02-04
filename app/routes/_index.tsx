@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Button } from "@yamada-ui/react";
+import { Button, Container, HStack, Heading, Text } from "@yamada-ui/react";
+import { useState } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,10 +10,14 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const [count, setCount] = useState(0);
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <Button>Click me</Button>
-    </div>
+    <Container>
+      <Heading as="h1">Welcome to Remix</Heading>
+      <HStack>
+      <Text as="p">Count: {count}</Text>
+      <Button onClick={() => setCount(count + 1)}>Click me</Button>
+      </HStack>
+    </Container>
   );
 }
